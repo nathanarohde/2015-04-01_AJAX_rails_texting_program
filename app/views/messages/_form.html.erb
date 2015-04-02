@@ -1,0 +1,23 @@
+<%= render 'layouts/errors', :object => @message %>
+
+<%= form_for @message do |f| %>
+
+  <div class='field'>
+    <%= f.label :to %><br>
+    <%= f.collection_select :to, Contact.all, :number, :name %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :from %><br>
+    <%= f.collection_select :from, Contact.all, :number, :name %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :body %><br>
+    <%= f.text_field :body %>
+  </div>
+
+  <div class='actions'>
+    <%= f.submit 'Send Message', class: 'btn btn-info', id: 'form-button' %>
+  </div>
+<% end %>

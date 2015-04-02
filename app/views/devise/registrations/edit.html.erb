@@ -1,0 +1,53 @@
+<div class='col-md-10 col-md-offset-1'>
+  <div class='col-md-6'>
+    <h4> Edit <%= resource_name.to_s.humanize %></h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put}) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class='field'>
+        <%= f.label :email %><br>
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %> </div>
+      <% end %>
+
+      <div class='field'>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :number %><br>
+        <%= f.text_field :number %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :password %> <small> </small><br>
+        <%= f.password_field :password, autocomplete: 'off' %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :password_confirmation %><br>
+        <%= f.password_field :password_confirmation, autocomplete: 'off' %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :current_password %> <small> </small>
+        <%= f.password_field :current_password, autocomplete: 'off' %>
+      </div>
+
+      <div class='actions'>
+        <%= f.submit 'Update', class: 'btn btn-primary', id: 'form-button' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class='col-md-6 text-right'>
+    <h4>Delete Account</h4>
+
+    <p>Blow it all up! <%= button_to 'Delete my account', registration_path(resource_name), data: { confirm: 'Forever?'}, method: :delete, class: 'btn btn-danger' %></p>
+  </div>
+</div>

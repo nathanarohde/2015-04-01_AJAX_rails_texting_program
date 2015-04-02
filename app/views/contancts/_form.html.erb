@@ -1,0 +1,18 @@
+<%= render 'layouts/errors', :object => @contact %>
+
+<% form_for @contact do |f| %>
+
+  <div class='field'>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </div>
+
+  <div class='actions'>
+    <%= f.submit 'Add Contact', class: 'btn btn-info', id: 'form-button' %>
+  </div>
+<% end %>

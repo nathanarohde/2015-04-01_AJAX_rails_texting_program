@@ -1,0 +1,10 @@
+<% if object.errors.any? %>
+  <div class='well'>
+    <h4>Ka-Boom!</h4>
+    <ul class='list-unstyled'>
+      <% object.errors.full_messages.each do |message| %>
+        <li><i class='fa fa-exclamation'></i> - <%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -12,16 +12,20 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'bootstrap_form'
-gem 'bootswatch-rails'
+gem 'font-awesome-sass'
 gem 'devise'
-gem 'letter_opener', :group => :development
+gem 'responders'
+gem 'rest-client'
+
+group :development do
+  gem 'web-console'
+  gem 'spring'
+  gem 'quiet_assets'
+  gem 'letter_opener'
+end
 
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-  gem 'quiet_assets'
-  gem 'pry'
   gem 'dotenv-rails'
   gem 'rspec-rails'
 end
@@ -29,6 +33,7 @@ end
 group :test do
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'pry'
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'poltergeist'

@@ -1,0 +1,36 @@
+<div class='col-md-12'>
+  <div class='row'>
+    <% if current_user %>
+      <%= link_to 'New Message', new_message_path, class: 'btn btn-info' %>
+      <hr>
+    <% end %>
+  </div>
+
+  <div class='row'>
+    <% if current_user %>
+      <h4> Messages</h4>
+      <hr>
+      <% current_user.messages.each do |message| %>
+        <div class='col-md-3 message_well'>
+          <div clas='col-md-4'>
+            <%= link_to message_path(message) do %>
+              <span class='fa-stack fa-3x'>
+                <i class='fa fa-circle-o fa-stack-2x'></i>
+                <span class='fa-stack-1x'><%= message.id %></span>
+              </span>
+            <% end %>
+          </div>
+          <div class='col-md-8'>
+            <p class='message_body'>
+              To: <%= message.to %> <br>
+              From: <%= message.from %> <br>
+              <small>(<%= message.created_at.to_formatted_s(:long_ordianl) %>)</small>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <h4>Login to begin sending messages.</h4>
+    <% end %>
+  </div>
+</div>
